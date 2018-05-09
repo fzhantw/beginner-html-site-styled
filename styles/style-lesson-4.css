@@ -1,0 +1,48 @@
+/** L4: font  **/
+.lesson-4 p {
+  /**
+  text-align: 對齊方式
+  可使用
+  1. 關鍵字：left right center justify
+  
+  https://developer.mozilla.org/en-US/docs/Web/CSS/text-align
+  */
+  text-align: justify;
+  
+  /**
+  text-indent: 縮排
+  可使用
+  1. 數值：0 10px 30%
+  
+  https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent
+  */
+  text-indent: 16px;
+  
+  /**
+  white-space: 空白處理
+  設定空白鍵 ＆ Tab & \n 換行方式
+  可使用
+  1. 關鍵字：normal nowrap pre pre-wrap pre-line
+  
+  https://developer.mozilla.org/en-US/docs/Web/CSS/white-space
+  */
+  white-space: pre-line;
+  
+  /**
+  word-break: 換行方式
+  設定一行的最後一個字該不該換行
+  可使用
+  1. 關鍵字：normal break-all break-word
+  
+  https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
+  */
+  word-break: break-all;
+  
+  /**
+  word-spacing: 詞距
+  兩個詞之間的距離
+  可使用
+  1. 數值：10px 1% 1em;
+  */
+  word-spacing: 1px;
+}
