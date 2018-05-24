@@ -1,0 +1,76 @@
+/*
+ * normalize.css 是一個基礎的樣式表，前端開發者很常在所有樣式表的最前面加入這份樣式
+ * 最大的用途在於讓網頁在不同瀏覽器上樣式一致性提高
+ * 他有以下功能
+ *   1. 統一各瀏覽器的預設排版、字型、元件樣式（表格、按鈕...）
+ */
+@import url(https://necolas.github.io/normalize.css/latest/normalize.css);
+
+body {
+  background-color: aliceblue;
+  padding: 8px;
+}
+
+/**
+ * display: 元件的顯示類型
+ *          決定了一個元件要如何排版，包含左右、上層、下層的位置，以及尺寸、內外距的關係
+ *   常用值
+ *   1. block
+ *   2. inline
+ *   3. inline-block
+ */
+
+.card {
+  display: block;
+  width: 290px;
+  border: 1px grey solid;
+  margin: 0 auto;
+}
+
+.card .image {
+  width: 100%;
+}
+
+.card .image img {
+  width: 100%;
+}
+
+/**
+ * padding: 元件與內容的距離
+ * 可以寫
+ *   1. 尺寸：8px; 0.5em
+ *   2. 百分比：2%;
+ *
+ * box-sizing: 決定尺寸是內容的尺寸，還是邊界的尺寸
+ * 可以寫
+ *   1. border-box
+ *   2. content-box
+ *
+ */
+.card .info {
+  padding: 4px 8px;
+  box-sizing: border-box;
+}
+
+.card .info .name {
+  padding: 4px 0;
+  font-weight: 500;
+}
+
+.card .info .birthday {
+  color: grey;
+  padding: 2px 0;
+}
+
+/**
+ * margin: 元件與其他元件的距離
+ * 可以寫
+ *   1. 尺寸：8px; 0.5em
+ *   2. 百分比：2%;
+ *   3. auto; 代表含義：依照尺寸，自動填滿
+ *
+ */
+.card .info .description {
+  margin: 4px 0;
+  line-height: 1.5;
+}
