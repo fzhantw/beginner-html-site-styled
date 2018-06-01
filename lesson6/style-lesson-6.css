@@ -3,6 +3,7 @@
  * 最大的用途在於讓網頁在不同瀏覽器上樣式一致性提高
  * 他有以下功能
  *   1. 統一各瀏覽器的預設排版、字型、元件樣式（表格、按鈕...）
+ *   2. 修復舊的瀏覽器
  */
 @import url(https://necolas.github.io/normalize.css/latest/normalize.css);
 
@@ -20,11 +21,22 @@ body {
  *   3. inline-block
  */
 
+ 
+/**
+ * border: 
+ *   格式：尺寸 樣式 顏色;
+ *   範例
+ *   1. 1px solid #000000;
+ *   2. 2px dotted black;
+ */
 .card {
   display: block;
   width: 290px;
   border: 1px grey solid;
-  margin: 0 auto;
+  border-width: 1px;
+  border-color: grey;
+  border-style: solid;
+  margin: 8px auto;
 }
 
 .card .image {
