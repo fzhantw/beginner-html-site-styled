@@ -1,10 +1,3 @@
-/*
- * normalize.css 是一個基礎的樣式表，前端開發者很常在所有樣式表的最前面加入這份樣式
- * 最大的用途在於讓網頁在不同瀏覽器上樣式一致性提高
- * 他有以下功能
- *   1. 統一各瀏覽器的預設排版、字型、元件樣式（表格、按鈕...）
- *   2. 修復舊的瀏覽器
- */
 @import url(https://necolas.github.io/normalize.css/latest/normalize.css);
 
 body {
@@ -12,22 +5,58 @@ body {
   padding: 8px;
 }
 
+.card-container {
+  display: block;
+  width: 960px;
+  margin: 0 auto;
+}
+
 /**
- * display: 元件的顯示類型
- *          決定了一個元件要如何排版，包含左右、上層、下層的位置，以及尺寸、內外距的關係
- *   常用值
- *   1. block
- *   2. inline
- *   3. inline-block
+ * 這次要介紹有關流(flow)的概念，
+ * 網頁排版中
+ * 在未設定的情況下，網頁會將物件依照 normal flow 的順序排列
+ * 由左至右、由上而下
+ * 除了 normal flow，還有很多種排版方式
+ * 在下面一一解說
  */
 
- 
 /**
- * border: 
- *   格式：尺寸 樣式 顏色;
- *   範例
- *   1. 1px solid #000000;
- *   2. 2px dotted black;
+ * clear: 
+ *   結束前方物件的靠左的流或靠右的流
+ *          
+ *   可用值
+ *   1. left
+ *   2. right
+ *   3. both
+ *
+ *
+ * ::after、::before
+ *   是一個偽物件，可以製造出一個不存在 html 中的物件
+ *   before 是在原本物件開始位置新增一個偽物件
+ *   after 則是在之後
+ *   這兩個偽物件都必須有 content 這個屬性，指示裡面要放什麼
+ *   我們在此將 clear:both; 這個屬性設定在尾物件上，讓程式碼更簡潔
+ */
+.card-container::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+footer {
+  margin: 16px 0;
+}
+
+/**
+ * float: 
+ *   決定物件是否是浮動元素
+ *   一個浮動元素會脫離原本網頁的流（flow）
+ *   獨立進入靠左的流或靠右的流
+ *          
+ *   可用值
+ *   1. left
+ *   2. right
+ *   3. none (預設)
  */
 .card {
   display: block;
@@ -36,7 +65,10 @@ body {
   border-width: 1px;
   border-color: grey;
   border-style: solid;
-  margin: 8px auto;
+  margin: 8px 8px;
+  float: left;
+  height: 400px;
+  box-sizing: border-box;
 }
 
 .card .image {
@@ -47,18 +79,6 @@ body {
   width: 100%;
 }
 
-/**
- * padding: 元件與內容的距離
- * 可以寫
- *   1. 尺寸：8px; 0.5em
- *   2. 百分比：2%;
- *
- * box-sizing: 決定尺寸是內容的尺寸，還是邊界的尺寸
- * 可以寫
- *   1. border-box
- *   2. content-box
- *
- */
 .card .info {
   padding: 4px 8px;
   box-sizing: border-box;
@@ -74,15 +94,54 @@ body {
   padding: 2px 0;
 }
 
-/**
- * margin: 元件與其他元件的距離
- * 可以寫
- *   1. 尺寸：8px; 0.5em
- *   2. 百分比：2%;
- *   3. auto; 代表含義：依照尺寸，自動填滿
- *
- */
 .card .info .description {
   margin: 4px 0;
   line-height: 1.5;
+}
+
+/**
+ * position: 
+ *   決定物件是否進入 flow
+ *   以及要參考的定位點
+ *          
+ *   介紹
+ *   1. static (預設)：在 flow 裡面，沒有定位點
+ *   2. relative：在 flow 裡面，定位點是原本在 flow 裡的位置
+ *   3. absolute：脫離 flow，定位點是最近的一個父物件的定位點
+ *   4. fixed: 脫離 flow，定位點是整個網頁
+ *
+ *
+ * top right bottom left
+ *   物件與定位點的相對距離
+ *   top ＆ bottom 通常不併存
+ *   left & right 通常不併存
+ */
+
+.card.-emphasize {
+  position: relative;
+  /* border: 4px grey solid; */
+  margin-top: 4px;
+  margin-bottom: -2px;
+  margin-right: 0px;
+  width: 302px;
+  height: 414px;
+  top: -2px;
+  left: -8px;
+}
+
+.top {
+  position: fixed;
+  right: 32px;
+  bottom: 16px;
+}
+
+.balloon-container {
+  position: relative;
+}
+
+.balloon {
+  position: absolute;
+  width: 100px;
+  top: -120px;
+  left: 980px;
 }
